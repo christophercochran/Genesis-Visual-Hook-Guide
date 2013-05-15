@@ -1,0 +1,48 @@
+.filter { display: inline !important; color: #F89E43 !important; font-weight: bold !important; cursor: help; }
+
+.genesis_hook { 
+	color: #F89E43;
+	display: block;
+	padding: 2px 5px;
+	margin: 10px;
+	border: 1px solid;
+	overflow: hidden;
+	word-wrap: break-word;
+	cursor: help;
+}
+
+.wordpress_hook { 
+	color: #21759B;
+	display: block;
+	padding: 2px 5px;
+	margin: 10px;
+	border: 1px solid;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+.gvhg-overlayed .genesis_hook { 
+	z-index: 9998;
+	color: white;
+	display: inline;
+	position: absolute;
+	background: #F89E43;
+	opacity: .8;
+}
+	.gvhg-overlayed .genesis_hook:hover {
+		z-index: 9999;
+		opacity: 1;
+	}
+	
+.gvhg-overlayed .wordpress_hook { 
+	z-index: 9998;
+	color: white;
+	display: inline;
+	position: absolute;
+	background: #21759B;
+	opacity: .8;
+}
+	.gvhg-overlayed .wordpress_hook:hover {
+		z-index: 9999;
+		opacity: 1;
+	}
