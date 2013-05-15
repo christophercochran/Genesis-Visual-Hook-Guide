@@ -2,8 +2,8 @@
 Contributors: cochran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TLKVZFHV64ZS4&lc=US&item_name=Christopher%20Cochran&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: genesis, hooks, genesiswp, studiopress, filters, markup, guide
-Requires at least: 3.2
-Tested up to: 3.3
+Requires at least: 3.4
+Tested up to: 3.5
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -11,9 +11,9 @@ Find Genesis hooks (action and filter hooks) quick and easily by seeing their ac
 
 == Description ==
 
-Once a tool for myself the Genesis Visual Hook guide has slowly evolved into what it is today. I finally welcome the plugin version of the popular [Visual Genesis Hooks and Filters Guide](http://genesistutorials.com/visual-hook-guide) from [Genesis Tutorials](http://genesistutorials.com). 
+Once a tool for myself the Genesis Visual Hook guide has slowly evolved into what it is today. I finally welcome the plugin version of the popular [Visual Genesis Hooks and Filters Guide](http://genesistutorials.com/visual-hook-guide) from [Genesis Tutorials](http://genesistutorials.com).
 
-Once installed this plugin adds a drop down menu to the admin bar to select between three views (Hook, Filter, and Markup). Select an option or all three to see the hooks in their actual locations on your current theme. 
+Once installed this plugin adds a drop down menu to the admin bar to select between three views (Hook, Filter, and Markup). Select an option or all three to see the hooks in their actual locations on your current theme.
 
 Great companion to [Genesis Simple Hooks](http://wordpress.org/extend/plugins/genesis-simple-hooks/).
 
@@ -37,6 +37,10 @@ Sure! The views are triggered by a query string. Simply add ?g_markup=show ?g_ho
 
 == Changelog ==
 
+
+= 0.8.3 =
+* Fixed: get_theme_data() deprecated in WP 3.4 / replaced with wp_get_theme().
+
 = 0.8.2 =
 * Fixed: Error messages when WP_DEBUG is enabled.
 
@@ -47,19 +51,19 @@ Sure! The views are triggered by a query string. Simply add ?g_markup=show ?g_ho
 = 0.8 =
 * Added: Missing descriptions for the rest of the hooks.
 * Added: More filters:
-			genesis_comments_closed_text, 
-			genesis_no_comments_text, 
+			genesis_comments_closed_text,
+			genesis_no_comments_text,
 			genesis_no_pings_text
 
 = 0.7b =
 * Added: More descriptions to a few of the hooks.
 * Added: More filters:
-			genesis_post_info, 
-			genesis_post_meta, 
-			genesis_post_title_text, 
-			genesis_noposts_text, 
-			genesis_search_text, 
-			genesis_search_button_text, 
+			genesis_post_info,
+			genesis_post_meta,
+			genesis_post_title_text,
+			genesis_noposts_text,
+			genesis_search_text,
+			genesis_search_button_text,
 			genesis_nav_home_text
 * Fix: Formatting of Document Head hook comments. Now followed by a carriage return.
 
