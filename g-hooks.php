@@ -12,89 +12,94 @@ License: GPLv2
 
 register_activation_hook(__FILE__, 'gvhg_activation_check');
 function gvhg_activation_check() {
-	    
-	    $theme_info = get_theme_data( get_template_directory() . '/style.css' );
-	       
-        if ( basename( get_template_directory() ) != 'genesis' ) {
+
+	    $theme_info = wp_get_theme();
+
+		$genesis_flavors = array(
+			'genesis',
+			'genesis-trunk',
+		);
+
+        if ( ! in_array( $theme_info->Template, $genesis_flavors ) ) {
             deactivate_plugins( plugin_basename(__FILE__) ); // Deactivate ourself
 	        wp_die('Sorry, you can\'t activate unless you have installed <a href="http://www.studiopress.com/themes/genesis">Genesis</a>');
-        }	
+        }
 }
 
 add_action( 'admin_bar_menu', 'gvhg_admin_bar_links', 100 );
 function gvhg_admin_bar_links() {
 global $wp_admin_bar;
 
-	if ( is_admin() ) 
+	if ( is_admin() )
 		return;
-		
-	$wp_admin_bar->add_menu( 
+
+	$wp_admin_bar->add_menu(
 		array(
 			'id' => 'ghooks',
 			'title' => __( 'G Hook Guide', 'gvisualhookguide' ),
 			'href' => '',
 			'position' => 0,
-		) 
+		)
 	);
-	$wp_admin_bar->add_menu( 
+	$wp_admin_bar->add_menu(
 		array(
 			'id'	   => 'ghooks_action',
 			'parent'   => 'ghooks',
 			'title'    => __( 'Action Hooks', 'gvisualhookguide' ),
 			'href'     => add_query_arg( 'g_hooks', 'show' ),
 			'position' => 10,
-		) 
+		)
 	);
-	$wp_admin_bar->add_menu( 
+	$wp_admin_bar->add_menu(
 		array(
 			'id'	   => 'ghooks_filter',
 			'parent'   => 'ghooks',
 			'title'    => __( 'Filter Hooks', 'gvisualhookguide' ),
 			'href'     => add_query_arg( 'g_filters', 'show' ),
 			'position' => 10,
-		) 
+		)
 	);
-	$wp_admin_bar->add_menu( 
+	$wp_admin_bar->add_menu(
 		array(
 			'id'	   => 'ghooks_markup',
 			'parent'   => 'ghooks',
 			'title'    => __( 'Markup', 'gvisualhookguide' ),
 			'href'     => add_query_arg( 'g_markup', 'show' ),
 			'position' => 10,
-		) 
+		)
 	);
 
 }
 
 add_action('wp_enqueue_scripts', 'gvhg_hooks_stylesheet');
 function gvhg_hooks_stylesheet() {
-	 
+
 	 $gvhg_plugin_url = plugins_url() . '/genesis-visual-hook-guide/';
-	 
+
 	 if ( 'show' == isset( $_GET['g_hooks'] ) )
 	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
-	
+
 	 if ( 'show' == isset( $_GET['g_filters'] ) )
 	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
-    
+
      if ( 'show' == isset( $_GET['g_markup'] ) )
      	wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . 'markup.css' );
 
 }
- 
+
 
 add_action('get_header', 'gvhg_genesis_hooker' );
 function gvhg_genesis_hooker() {
 global $gvhg_genesis_action_hooks;
-	
-	$gvhg_genesis_action_hooks = array(	
-								
+
+	$gvhg_genesis_action_hooks = array(
+
 			'genesis_doctype' => array(
 				'hook' => 'genesis_doctype',
 				'area' => 'Document Head',
 				'description' => '',
 				'functions' => array(),
-				),	
+				),
 			'genesis_title' => array(
 				'hook' => 'genesis_title',
 				'area' => 'Document Head',
@@ -388,43 +393,43 @@ global $gvhg_genesis_action_hooks;
 				'description' => 'This hook executes immediately before the closing tag in the document source.',
 				'functions' => array(),
 				)
-		);	
-							
+		);
+
 	foreach ( $gvhg_genesis_action_hooks as $action )
 		add_action( $action['hook'] , 'gvhg_genesis_action_hook' , 1 );
 }
 
 function gvhg_genesis_action_hook () {
 global $gvhg_genesis_action_hooks;
-	
+
 	$current_action = current_filter();
-	
+
 	if ( 'show' == isset( $_GET['g_hooks'] ) ) {
-		
+
 		if ( 'Document Head' == $gvhg_genesis_action_hooks[$current_action]['area'] ) :
-			
+
 			echo "<!-- ";
 				echo $current_action;
 			echo " -->\n";
-			
+
 		else :
-		
+
 			echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action . '</div>';
-		
+
 		endif;
 	}
-	
+
 }
 
 add_action( 'wp', 'gvhg_filter_logic' );
 function gvhg_filter_logic() {
-	
+
 	if ( 'show' == isset( $_GET['g_filters'] ) ) {
 
 		add_filter( 'genesis_seo_title', 'gvhg_genesis_seo_title', 10, 3 );
 		add_filter( 'genesis_seo_description', 'gvhg_genesis_seo_description', 10, 3 );
 		add_filter( 'genesis_title_comments', 'gvhg_title_comments');
-		add_filter( 'genesis_comment_form_args', 'gvhg_comment_form_args'); 
+		add_filter( 'genesis_comment_form_args', 'gvhg_comment_form_args');
 		add_filter( 'genesis_comments_closed_text', 'gvhg_comments_closed_text');
 		add_filter( 'comment_author_says_text', 'gvhg_comment_author_says_text');
 		add_filter( 'genesis_no_comments_text', 'gvhg_no_comments_text');
@@ -445,7 +450,7 @@ function gvhg_filter_logic() {
 		add_filter( 'genesis_footer_credits', 'gvhg_footer_creds_text');
 
 	}
-	
+
 }
 
 function gvhg_genesis_seo_title( $title, $inside, $wrap ) {
