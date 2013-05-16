@@ -3,7 +3,7 @@ Contributors: cochran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TLKVZFHV64ZS4&lc=US&item_name=Christopher%20Cochran&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: genesis, hooks, genesiswp, studiopress, filters, markup, guide
 Requires at least: 3.4
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv2 or later
 
@@ -37,6 +37,18 @@ Sure! The views are triggered by a query string. Simply add ?g_markup=show ?g_ho
 
 == Changelog ==
 
+= 0.9.0 =
+* Added: New Hooks from Genesis 2.0 (HTML5):
+			genesis_before_entry,
+			genesis_entry_header,
+			genesis_before_entry_content,
+			genesis_entry_content,
+			genesis_after_entry_content,
+			genesis_entry_footer,
+			genesis_after_entry,
+			genesis_before_post,
+* Added: New markup containers and classes for Genesis 2.0 (HTML5):
+* Fixed: Added filter for genesis_footer_creds_text.
 
 = 0.8.3 =
 * Fixed: get_theme_data() deprecated in WP 3.4 / replaced with wp_get_theme().
@@ -72,5 +84,3 @@ Sure! The views are triggered by a query string. Simply add ?g_markup=show ?g_ho
 
 = 0.5b =
 * Initial Beta Release
-
-
