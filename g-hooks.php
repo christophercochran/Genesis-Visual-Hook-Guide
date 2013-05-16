@@ -183,6 +183,48 @@ global $gvhg_genesis_action_hooks;
 				'description' => 'This hook outputs the actual loop. See lib/structure/loop.php and lib/structure/post.php for more details.',
 				'functions' => array(),
 				),
+			'genesis_before_entry' => array(
+				'hook' => 'genesis_before_entry',
+				'area' => 'Loop',
+				'description' => 'This hook executes before each post in all loop blocks (outside the post_class() article).',
+				'functions' => array(),
+				),
+			'genesis_entry_header' => array(
+				'hook' => 'genesis_entry_header',
+				'area' => 'Loop',
+				'description' => 'This hook executes immediately inside the article element for each post within the loop.',
+				'functions' => array(),
+				),
+			'genesis_before_entry_content' => array(
+				'hook' => 'genesis_entry_content',
+				'area' => 'Loop',
+				'description' => 'This hook executes immediately before the post/page content is output, outside the .entry-content div.',
+				'functions' => array(),
+				),
+			'genesis_entry_content' => array(
+				'hook' => 'genesis_entry_content',
+				'area' => 'Loop',
+				'description' => 'This hook outputs the actual post content and if chosen, the post image (inside the #content div).',
+				'functions' => array(),
+				),
+			'genesis_after_entry_content' => array(
+				'hook' => 'genesis_entry_content',
+				'area' => 'Loop',
+				'description' => 'This hook executes immediately after the post/page content is output, outside the .entry-content div.',
+				'functions' => array(),
+				),
+			'genesis_entry_footer' => array(
+				'hook' => 'genesis_entry_footer',
+				'area' => 'Loop',
+				'description' => 'This hook executes immediately before the close of the article element for each post within the loop.',
+				'functions' => array(),
+				),
+			'genesis_after_entry' => array(
+				'hook' => 'genesis_after_entry',
+				'area' => 'Loop',
+				'description' => 'This hook executes after each post in all loop blocks (outside the post_class() article).',
+				'functions' => array(),
+				),
 			'genesis_before_post' => array(
 				'hook' => 'genesis_before_post',
 				'area' => 'Loop',
@@ -438,6 +480,8 @@ function gvhg_filter_logic() {
 		add_filter( 'genesis_no_pings_text', 'gvhg_no_pings_text');
 		add_filter( 'genesis_breadcrumb_args', 'gvhg_breadcrumb_args');
 		add_filter( 'genesis_footer_backtotop_text', 'gvhg_footer_backtotop_text', 100);
+		add_filter( 'genesis_footer_creds_text', 'gvhg_footer_creds_text', 100);
+		//add_filter( 'genesis_footer_output', 'gvhg_footer_output', 100, 3);
 		add_filter( 'genesis_author_box_title', 'gvhg_author_box_title' );
 		add_filter( 'genesis_post_info', 'gvhg_post_info' );
 		add_filter( 'genesis_post_meta', 'gvhg_post_meta' );
@@ -483,6 +527,16 @@ function gvhg_footer_backtotop_text($backtotop_text) {
     return $backtotop_text;
 }
 
+function gvhg_footer_creds_text($creds) {
+    $creds = '<div class="filter">genesis_footer_creds_text</div>';
+    return $creds;
+}
+
+function gvhg_footer_output($output, $backtotop_text, $creds) {
+    $output = '<div class="filter">genesis_footer_output</div>' . $backtotop_text . $creds;
+    return $output;
+}
+
 function gvhg_breadcrumb_args($args) {
 	$args['prefix'] = '<div class="breadcrumb"><span class="filter">genesis_breadcrumb_args</span> ';
     $args['suffix'] = '</div>';
@@ -518,11 +572,6 @@ function gvhg_comment_form_args($args) {
     $args['comment_notes_after'] = '<span class="filter">genesis_comment_form_args [\'comment_notes_after\']</span>';
 
     return $args;
-}
-
-function gvhg_footer_creds_text($creds) {
-  	 $creds = '<span class="filter">genesis_footer_creds_text</span>';
-	return  $creds;
 }
 
 function gvhg_favicon_url() {
