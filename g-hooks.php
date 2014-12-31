@@ -533,7 +533,7 @@ function gvhg_comment_author_says_text() {
 }
 
 function gvhg_ping_author_says_text() {
-	return '<span class="filter">comment_author_says_text</span>';
+	return '<span class="filter">ping_author_says_text</span>';
 }
 
 function gvhg_footer_backtotop_text() {
