@@ -107,6 +107,10 @@ add_action('get_header', 'gvhg_genesis_hooker' );
 function gvhg_genesis_hooker() {
 global $gvhg_genesis_action_hooks;
 
+	 if ( !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
+		 return;  // BAIL without hooking into anyhting if not displaying anything
+	 }
+
 	$gvhg_genesis_action_hooks = array(
 
 			'genesis_doctype' => array(
