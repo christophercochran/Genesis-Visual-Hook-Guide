@@ -517,43 +517,35 @@ function gvhg_filter_logic() {
 }
 
 function gvhg_genesis_seo_title( $title, $inside, $wrap ) {
-	$title = sprintf('<%s id="title" title="Applied to the output of the genesis_seo_site_title function which depending on the SEO option set by the user will either wrap the title in <h1> or <p> tags. Default value: $title, $inside, $wrap"><span class="filter">genesis_seo_site_title</span></%s>', $wrap, $wrap);
-	return $title;
+	return sprintf('<%s id="title" title="Applied to the output of the genesis_seo_site_title function which depending on the SEO option set by the user will either wrap the title in <h1> or <p> tags. Default value: $title, $inside, $wrap"><span class="filter">genesis_seo_site_title</span></%s>', $wrap, $wrap);
 }
 
 function gvhg_genesis_seo_description( $description, $inside, $wrap ) {
-	$description = sprintf('<%s id="title" title="Applied to the output of the genesis_seo_site_description function which depending on the SEO option set by the user will either wrap the description in <h1> or <p> tags. Default value: $description, $inside, $wrap"><span class="filter">genesis_seo_description</span></%s>', $wrap, $wrap);
-	return $description;
+	return sprintf('<%s id="title" title="Applied to the output of the genesis_seo_site_description function which depending on the SEO option set by the user will either wrap the description in <h1> or <p> tags. Default value: $description, $inside, $wrap"><span class="filter">genesis_seo_description</span></%s>', $wrap, $wrap);
 }
 
 function gvhg_author_box_title() {
-	$title = '<strong><span class="filter">genesis_author_box_title</span></strong>';
-	return $title;
+	return '<strong><span class="filter">genesis_author_box_title</span></strong>';
 }
 
-function gvhg_comment_author_says_text($text) {
-	$text = '<span class="filter">comment_author_says_text</span>';
-	return $text;
+function gvhg_comment_author_says_text() {
+	return '<span class="filter">comment_author_says_text</span>';
 }
 
-function gvhg_ping_author_says_text($text) {
-	$text = '<span class="filter">comment_author_says_text</span>';
-	return $text;
+function gvhg_ping_author_says_text() {
+	return '<span class="filter">comment_author_says_text</span>';
 }
 
-function gvhg_footer_backtotop_text($backtotop_text) {
-    $backtotop_text = '<div class="filter">genesis_footer_backtotop_text</div>';
-    return $backtotop_text;
+function gvhg_footer_backtotop_text() {
+    return '<div class="filter">genesis_footer_backtotop_text</div>';
 }
 
-function gvhg_footer_creds_text($creds) {
-    $creds = '<div class="filter">genesis_footer_creds_text</div>';
-    return $creds;
+function gvhg_footer_creds_text() {
+    return '<div class="filter">genesis_footer_creds_text</div>';
 }
 
 function gvhg_footer_output($output, $backtotop_text, $creds) {
-    $output = '<div class="filter">genesis_footer_output</div>' . $backtotop_text . $creds;
-    return $output;
+    return '<div class="filter">genesis_footer_output</div>' . $backtotop_text . $creds;
 }
 
 function gvhg_breadcrumb_args($args) {
@@ -594,18 +586,15 @@ function gvhg_comment_form_args($args) {
 }
 
 function gvhg_favicon_url() {
-    $favicon = 'genesis_favicon_url';
-    return $favicon;
+    return 'genesis_favicon_url';
 }
 
-function gvhg_post_info($post_info) {
-    $post_info = '<span class="filter">genesis_post_info</span>';
-    return $post_info;
+function gvhg_post_info() {
+    return '<span class="filter">genesis_post_info</span>';
 }
 
-function gvhg_post_meta($post_meta) {
-    $post_meta = '<span class="filter">genesis_post_meta</span>';
-    return $post_meta;
+function gvhg_post_meta() {
+    return '<span class="filter">genesis_post_meta</span>';
 }
 
 function gvhg_post_title_text() {
