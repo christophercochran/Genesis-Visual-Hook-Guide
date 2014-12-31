@@ -3,7 +3,7 @@
 Plugin Name: Genesis Visual Hook Guide
 Plugin URI: http://genesistutorials.com
 Description: Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.
-Version: 0.9.0
+Version: 0.9.5
 Author: Christopher Cochran
 Author URI: http://christophercochran.me
 License: GPLv2
