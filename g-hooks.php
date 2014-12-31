@@ -68,6 +68,21 @@ global $wp_admin_bar;
 			'position' => 10,
 		)
 	);
+	$wp_admin_bar->add_menu(
+		array(
+			'id'	   => 'ghooks_clear',
+			'parent'   => 'ghooks',
+			'title'    => __( 'Clear', 'gvisualhookguide' ),
+			'href'     => remove_query_arg(
+				array(
+					'g_hooks',
+					'g_filters',
+					'g_markup',
+				)
+			),
+			'position' => 10,
+		)
+	);
 
 }
 
