@@ -89,16 +89,16 @@ global $wp_admin_bar;
 add_action('wp_enqueue_scripts', 'gvhg_hooks_stylesheet');
 function gvhg_hooks_stylesheet() {
 
-	 $gvhg_plugin_url = plugins_url() . '/genesis-visual-hook-guide/';
+	 $gvhg_plugin_url = plugins_url(NULL,__FILE__);
 
 	 if ( 'show' == isset( $_GET['g_hooks'] ) )
-	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . '/styles.css' );
 
 	 if ( 'show' == isset( $_GET['g_filters'] ) )
-	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . '/styles.css' );
 
      if ( 'show' == isset( $_GET['g_markup'] ) )
-     	wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . 'markup.css' );
+     	wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . '/markup.css' );
 
 }
 
