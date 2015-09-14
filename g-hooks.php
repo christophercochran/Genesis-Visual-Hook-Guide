@@ -215,7 +215,7 @@ global $gvhg_genesis_action_hooks;
 				'functions' => array(),
 				),
 			'genesis_before_entry_content' => array(
-				'hook' => 'genesis_entry_content',
+				'hook' => 'genesis_before_entry_content',
 				'area' => 'Loop',
 				'description' => 'This hook executes immediately before the post/page content is output, outside the .entry-content div.',
 				'functions' => array(),
@@ -227,7 +227,7 @@ global $gvhg_genesis_action_hooks;
 				'functions' => array(),
 				),
 			'genesis_after_entry_content' => array(
-				'hook' => 'genesis_entry_content',
+				'hook' => 'genesis_after_entry_content',
 				'area' => 'Loop',
 				'description' => 'This hook executes immediately after the post/page content is output, outside the .entry-content div.',
 				'functions' => array(),
