@@ -9,6 +9,8 @@
 	overflow: hidden;
 	word-wrap: break-word;
 	cursor: help;
+	position: relative;
+	z-index: 1000;
 }
 
 .wordpress_hook { 

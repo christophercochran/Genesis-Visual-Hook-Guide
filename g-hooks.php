@@ -52,6 +52,15 @@ global $wp_admin_bar;
 	);
 	$wp_admin_bar->add_menu(
 		array(
+			'id'	   => 'ghooks_action_active',
+			'parent'   => 'ghooks',
+			'title'    => __( 'Action Hooks (active)', 'gvisualhookguide' ),
+			'href'     => add_query_arg( 'g_hooks_active', 'show' ),
+			'position' => 10,
+		)
+	);
+	$wp_admin_bar->add_menu(
+		array(
 			'id'	   => 'ghooks_filter',
 			'parent'   => 'ghooks',
 			'title'    => __( 'Filter Hooks', 'gvisualhookguide' ),
@@ -76,6 +85,7 @@ global $wp_admin_bar;
 			'href'     => remove_query_arg(
 				array(
 					'g_hooks',
+					'g_hooks_active',
 					'g_filters',
 					'g_markup',
 				)
@@ -89,9 +99,12 @@ global $wp_admin_bar;
 add_action('wp_enqueue_scripts', 'gvhg_hooks_stylesheet');
 function gvhg_hooks_stylesheet() {
 
-	 $gvhg_plugin_url = plugins_url() . '/genesis-visual-hook-guide/';
+	 $gvhg_plugin_url = plugin_dir_url( __FILE__ );
 
 	 if ( 'show' == isset( $_GET['g_hooks'] ) )
+	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+
+	 if ( 'show' == isset( $_GET['g_hooks_active'] ) )
 	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
 
 	 if ( 'show' == isset( $_GET['g_filters'] ) )
@@ -107,7 +120,7 @@ add_action('get_header', 'gvhg_genesis_hooker' );
 function gvhg_genesis_hooker() {
 global $gvhg_genesis_action_hooks;
 
-	 if ( !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
+	 if ( !('show' == isset( $_GET['g_hooks_active'] ) ) && !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
 		 return;  // BAIL without hooking into anyhting if not displaying anything
 	 }
 
@@ -464,8 +477,9 @@ function gvhg_genesis_action_hook () {
 global $gvhg_genesis_action_hooks;
 
 	$current_action = current_filter();
+	$showActive = 'show' == isset( $_GET['g_hooks_active'] );
 
-	if ( 'show' == isset( $_GET['g_hooks'] ) ) {
+	if ( 'show' == isset( $_GET['g_hooks'] ) || $showActive ) {
 
 		if ( 'Document Head' == $gvhg_genesis_action_hooks[$current_action]['area'] ) :
 
@@ -475,8 +489,32 @@ global $gvhg_genesis_action_hooks;
 
 		else :
 
-			echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action . '</div>';
+			if ($showActive) {
+				global $wp_filter;
+				$currentHookObj = $wp_filter[$current_action];
 
+				if (is_a( $currentHookObj , "WP_Hook")) {
+					$currentHook = $currentHookObj->callbacks;
+				} else {
+					$currentHook = $currentHookObj;
+				}
+
+				if (count($currentHook) > 1) {
+				// only show if there are hooks active
+				echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action;
+				//	echo "got one!";
+					echo "<ul>";
+					foreach ($currentHook as $key => $value) {
+						$action_name = array_keys($value)[0];
+						if ($action_name != 'gvhg_genesis_action_hook') echo '<li>' . ($key) . ': ' . $action_name . '</li>';
+					}
+					echo "</ul>";
+
+				};
+			} else {
+			echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action;
+			}
+			echo '</div>';
 		endif;
 	}
 
