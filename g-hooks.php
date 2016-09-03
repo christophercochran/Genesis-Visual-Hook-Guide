@@ -4,9 +4,13 @@ Plugin Name: Genesis Visual Hook Guide
 Plugin URI: http://genesistutorials.com
 Description: Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.
 Version: 0.9.5
-Author: Christopher Cochran
+Author: Christopher Cochran, Yosef Eliezrie
 Author URI: http://christophercochran.me
 License: GPLv2
+Domain Path:       /languages
+Text Domain:       genesis-visual-hook-guide
+GitHub Plugin URI: https://github.com/yosefeliezrie/Genesis-Visual-Hook-Guide
+GitHub Branch:     master
 */
 
 
@@ -52,6 +56,15 @@ global $wp_admin_bar;
 	);
 	$wp_admin_bar->add_menu(
 		array(
+			'id'	   => 'ghooks_action_active',
+			'parent'   => 'ghooks',
+			'title'    => __( 'Action Hooks (active)', 'gvisualhookguide' ),
+			'href'     => add_query_arg( 'g_hooks_active', 'show' ),
+			'position' => 10,
+		)
+	);
+	$wp_admin_bar->add_menu(
+		array(
 			'id'	   => 'ghooks_filter',
 			'parent'   => 'ghooks',
 			'title'    => __( 'Filter Hooks', 'gvisualhookguide' ),
@@ -76,6 +89,7 @@ global $wp_admin_bar;
 			'href'     => remove_query_arg(
 				array(
 					'g_hooks',
+					'g_hooks_active',
 					'g_filters',
 					'g_markup',
 				)
@@ -94,6 +108,9 @@ function gvhg_hooks_stylesheet() {
 	 if ( 'show' == isset( $_GET['g_hooks'] ) )
 	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
 
+	 if ( 'show' == isset( $_GET['g_hooks_active'] ) )
+	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+
 	 if ( 'show' == isset( $_GET['g_filters'] ) )
 	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
 
@@ -107,7 +124,7 @@ add_action('get_header', 'gvhg_genesis_hooker' );
 function gvhg_genesis_hooker() {
 global $gvhg_genesis_action_hooks;
 
-	 if ( !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
+	 if ( !('show' == isset( $_GET['g_hooks_active'] ) ) && !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
 		 return;  // BAIL without hooking into anyhting if not displaying anything
 	 }
 
@@ -215,7 +232,7 @@ global $gvhg_genesis_action_hooks;
 				'functions' => array(),
 				),
 			'genesis_before_entry_content' => array(
-				'hook' => 'genesis_before_entry_content',
+				'hook' => 'genesis_entry_content',
 				'area' => 'Loop',
 				'description' => 'This hook executes immediately before the post/page content is output, outside the .entry-content div.',
 				'functions' => array(),
@@ -227,7 +244,7 @@ global $gvhg_genesis_action_hooks;
 				'functions' => array(),
 				),
 			'genesis_after_entry_content' => array(
-				'hook' => 'genesis_after_entry_content',
+				'hook' => 'genesis_entry_content',
 				'area' => 'Loop',
 				'description' => 'This hook executes immediately after the post/page content is output, outside the .entry-content div.',
 				'functions' => array(),
@@ -464,8 +481,9 @@ function gvhg_genesis_action_hook () {
 global $gvhg_genesis_action_hooks;
 
 	$current_action = current_filter();
+	$showActive = 'show' == isset( $_GET['g_hooks_active'] );
 
-	if ( 'show' == isset( $_GET['g_hooks'] ) ) {
+	if ( 'show' == isset( $_GET['g_hooks'] ) || $showActive ) {
 
 		if ( 'Document Head' == $gvhg_genesis_action_hooks[$current_action]['area'] ) :
 
@@ -475,8 +493,25 @@ global $gvhg_genesis_action_hooks;
 
 		else :
 
-			echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action . '</div>';
+			if ($showActive) {
+				global $wp_filter;
+				$currentHook = $wp_filter[$current_action];
+				if (count($currentHook) > 1) {
+				// only show if there are hooks active
+				echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action;
+				//	echo "got one!";
+					echo "<ul>";
+					foreach ($currentHook as $key => $value) {
+						$action_name = array_keys($value)[0];
+						if ($action_name != 'gvhg_genesis_action_hook') echo '<li>' . ($key) . ': ' . $action_name . '</li>';
+					}
+					echo "</ul>";
 
+				};
+			} else {
+			echo '<div class="genesis_hook" title="' . $gvhg_genesis_action_hooks[$current_action]['description'] . '">' . $current_action;
+			}
+			echo '</div>';
 		endif;
 	}
 

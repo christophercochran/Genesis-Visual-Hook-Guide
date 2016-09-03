@@ -1,16 +1,10 @@
-=== Genesis Visual Hook Guide ===
-Contributors: cochran, yosefeliezrie
-Tags: genesis, hooks, genesiswp, studiopress, filters, markup, guide
-Requires at least: 3.4
-Tested up to: 4.6
-Stable tag: trunk
-License: GPLv2 or later
+# Genesis Visual Hook Guide
 
 Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.
 
-== Description ==
+## Description
 
-Once a tool for myself the Genesis Visual Hook guide has slowly evolved into what it is today. I finally welcome the plugin version of the popular [Visual Genesis Hooks and Filters Guide](http://genesistutorials.com/visual-hook-guide) from [Genesis Tutorials](http://genesistutorials.com).
+The plugin version of the popular [Visual Genesis Hooks and Filters Guide](http://genesistutorials.com/visual-hook-guide) from [Genesis Tutorials](http://genesistutorials.com).
 
 Once installed this plugin adds a drop down menu to the admin bar to select between three views (Hook, Filter, and Markup). Select an option or all three to see the hooks in their actual locations on your current theme.
 
@@ -18,23 +12,56 @@ Great companion to [Genesis Simple Hooks](http://wordpress.org/extend/plugins/ge
 
 **Genesis Theme Framework required.**
 
-== Installation ==
+## Installation
 
-1. Upload the entire `genesis-visual-hook-guide` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress
+### Upload
 
-== Frequently Asked Questions ==
+1. Download the latest tagged archive (choose the "zip" option).
+* Go to the __Plugins__ → __Add New__ screen and click the __Upload__ tab.
+* Upload the zipped archive directly.
+* Go to the Plugins screen and click __Activate__.
+
+### Manual
+
+1. Download the latest tagged archive (choose the "zip" option).
+* Unzip the archive.
+* Copy the folder to your `/wp-content/plugins/` directory.
+* Go to the Plugins screen and click __Activate__.
+
+Check out the Codex for more information about [installing plugins manually](http://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+
+### Git
+
+In a terminal, browse to your `/wp-content/plugins/` directory and clone this repository:
+
+~~~sh
+git clone git@github.com:GaryJones/PROJECT-SLUG.git
+~~~
+
+Then go to your Plugins screen and click __Activate__.
+
+## Updates
+
+This plugin supports the [GitHub Updater](https://github.com/afragen/github-updater) plugin, so if you install that, this plugin becomes automatically updateable direct from GitHub.
+
+## Credits
+
+Built by [Yosef ELiezrie](https://twitter.com/yosefeliezrie)  
+Copyright 2016 [Yosef Eliezrie] (https://twitter.com/yosefeliezrie)  
+
+## Frequently Asked Questions
 
 = I have my admin bar disable, can I still view the hooks without it? =
 
 Sure! The views are triggered by a query string. Simply add ?g_markup=show ?g_hooks=show or ?g_filters=show to the end the url.
 
-== Screenshots ==
+## Changelog
 
-1. Plugin in action on the default Sample Child Theme.
-2. Hooks in Document Head.
-
-== Changelog ==
+= 1.0 =
+* Update: Work with Genesis 2.3.1
+* Added: Online show active hooks
+* Added: Added readme files
+* Added: Added code documentation
 
 = 0.9.5 =
 * Added: Clear menu item to disable all active displayed views. (Props salcode)
