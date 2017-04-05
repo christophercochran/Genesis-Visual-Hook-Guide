@@ -103,7 +103,7 @@ function gvhg_hooks_stylesheet() {
 }
 
 
-add_action('get_header', 'gvhg_genesis_hooker' );
+add_action('genesis_meta', 'gvhg_genesis_hooker' );
 function gvhg_genesis_hooker() {
 
 	 if ( !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
