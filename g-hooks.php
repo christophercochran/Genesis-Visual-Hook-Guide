@@ -110,6 +110,7 @@ function gvhg_genesis_hooker() {
 		 return;  // BAIL without hooking into anyhting if not displaying anything
 	 }
 
+	add_action( 'genesis_header_right', '__return_empty_string', 1 );
 	add_action( 'all', 'gvhg_genesis_action_hook', 1 );
 }
 
