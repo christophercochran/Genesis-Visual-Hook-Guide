@@ -3,7 +3,7 @@ Contributors: cochran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TLKVZFHV64ZS4&lc=US&item_name=Christopher%20Cochran&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: genesis, hooks, genesiswp, studiopress, filters, markup, guide
 Requires at least: 3.4
-Tested up to: 4.1
+Tested up to: 4.6.4
 Stable tag: trunk
 License: GPLv2 or later
 

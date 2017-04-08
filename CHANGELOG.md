@@ -8,6 +8,17 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - No other changes yet
 
+## [1.0.0] - 2017-4-8
+### Added 
+- Activated notice.
+- Automating the locating of hooks (props salcode)
+
+### Changed
+- Query strings to display hooks, filters, and markup are now gvhg_hooks, gvhg_filters and gvhg_markup.
+- Escapes output of add_query_arg
+- Filter hooks genesis_seo_title and genesis_seo_description names were displayed wrong.
+- Action hooks no longer have descriptions. This will be re-added in a later release.
+
 ## [0.9.5] - 2014-12-31
 - Added: Clear menu item to disable all active displayed views. (Props salcode)
 - Fixed: Don't add actions onto genesis' hooks unless displaying. (Props jb510)
@@ -62,5 +73,6 @@ All notable changes to this project will be documented in this file.
 ## 0.5b
 - Initial Beta Release
 
-[Unreleased]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.5...1.0.0-dev
+[Unreleased]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.5...HEAD
+[1.0.0]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.5...1.0.0
 [0.9.5]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.0...0.9.5

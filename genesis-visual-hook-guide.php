@@ -4,7 +4,7 @@ Plugin Name: Genesis Visual Hook Guide
 Plugin URI: https://genesistutorials.com/visual-hook-guide/
 GitHub Plugin URI: https://github.com/christophercochran/Genesis-Visual-Hook-Guide
 Description: Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.
-Version: 0.9.5
+Version: 1.0.0
 Author: Christopher Cochran
 Author URI: http://christophercochran.me
 Text Domain: genesis-visual-hook-guide
