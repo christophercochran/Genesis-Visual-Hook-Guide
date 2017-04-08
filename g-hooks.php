@@ -36,7 +36,7 @@ global $wp_admin_bar;
 
 	$wp_admin_bar->add_menu(
 		array(
-			'id' => 'ghooks',
+			'id' => 'gvhg_hooks',
 			'title' => __( 'Genesis Hook Guide', 'genesis-visual-hook-guide' ),
 			'href' => '',
 			'position' => 0,
@@ -44,41 +44,41 @@ global $wp_admin_bar;
 	);
 	$wp_admin_bar->add_menu(
 		array(
-			'id'	   => 'ghooks_action',
-			'parent'   => 'ghooks',
+			'id'	   => 'gvhg_hooks_action',
+			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Action Hooks', 'genesis-visual-hook-guide' ),
-			'href'	   => add_query_arg( 'g_hooks', 'show' ),
+			'href'	   => add_query_arg( 'gvhg_hooks', 'show' ),
 			'position' => 10,
 		)
 	);
 	$wp_admin_bar->add_menu(
 		array(
-			'id'	   => 'ghooks_filter',
-			'parent'   => 'ghooks',
+			'id'	   => 'gvhg_hooks_filter',
+			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Filter Hooks', 'genesis-visual-hook-guide' ),
-			'href'	   => add_query_arg( 'g_filters', 'show' ),
+			'href'	   => add_query_arg( 'gvhg_filters', 'show' ),
 			'position' => 10,
 		)
 	);
 	$wp_admin_bar->add_menu(
 		array(
-			'id'	   => 'ghooks_markup',
-			'parent'   => 'ghooks',
+			'id'	   => 'gvhg_hooks_markup',
+			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Markup', 'genesis-visual-hook-guide' ),
-			'href'	   => add_query_arg( 'g_markup', 'show' ),
+			'href'	   => add_query_arg( 'gvhg_markup', 'show' ),
 			'position' => 10,
 		)
 	);
 	$wp_admin_bar->add_menu(
 		array(
-			'id'	   => 'ghooks_clear',
-			'parent'   => 'ghooks',
+			'id'	   => 'gvhg_hooks_clear',
+			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Clear', 'genesis-visual-hook-guide' ),
 			'href'	   => remove_query_arg(
 				array(
-					'g_hooks',
-					'g_filters',
-					'g_markup',
+					'gvhg_hooks',
+					'gvhg_filters',
+					'gvhg_markup',
 				)
 			),
 			'position' => 10,
@@ -107,7 +107,7 @@ function gvhg_hooks_stylesheet() {
 add_action('genesis_meta', 'gvhg_genesis_hooker' );
 function gvhg_genesis_hooker() {
 
-	 if ( !('show' == isset( $_GET['g_hooks'] ) ) && !('show' == isset( $_GET['g_filters'] ) ) && !('show' == isset( $_GET['g_markup'] ) ) ) {
+	 if ( !('show' == isset( $_GET['gvhg_hooks'] ) ) && !('show' == isset( $_GET['gvhg_filters'] ) ) && !('show' == isset( $_GET['gvhg_markup'] ) ) ) {
 		 return;  // BAIL without hooking into anyhting if not displaying anything
 	 }
 
@@ -150,7 +150,7 @@ function gvhg_hook_name( $function, $element = null, $description = null ) {
 add_action( 'wp', 'gvhg_filter_logic' );
 function gvhg_filter_logic() {
 
-	if ( 'show' == isset( $_GET['g_filters'] ) ) {
+	if ( 'show' == isset( $_GET['gvhg_filters'] ) ) {
 
 		add_filter( 'genesis_seo_title', 'gvhg_genesis_seo_title', 10, 3 );
 		add_filter( 'genesis_seo_description', 'gvhg_genesis_seo_description', 10, 3 );
