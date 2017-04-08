@@ -56,7 +56,7 @@ Then go to your Plugins screen and click __Activate__.
 ## FAQ
 ### I have my admin bar disable, can I still view the hooks without it?
 
-Sure! The views are triggered by a query string. Simply add ?g_markup=show ?g_hooks=show or ?g_filters=show to the end the url.
+Sure! The views are triggered by a query string. Simply add ?gvhg_markup=show ?gvhg_hooks=show or ?gvhg_filters=show to the end the url.
 
 
 ## Change Log
