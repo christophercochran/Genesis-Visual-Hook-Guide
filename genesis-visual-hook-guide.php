@@ -98,7 +98,7 @@ global $wp_admin_bar;
 add_action('wp_enqueue_scripts', 'gvhg_hooks_stylesheet');
 function gvhg_hooks_stylesheet() {
 
-	 $gvhg_plugin_url = plugins_url() . '/genesis-visual-hook-guide/';
+	 $gvhg_plugin_url = plugins_url( NULL, __FILE__ );
 
 	 if ( 'show' == isset( $_GET['gvhg_hooks'] ) )
 		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . '/css/styles.css' );
