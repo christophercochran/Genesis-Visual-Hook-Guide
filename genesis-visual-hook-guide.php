@@ -27,6 +27,13 @@ function gvhg_activation_check() {
 		}
 }
 
+add_action( 'admin_notices', 'gvhg_active_notice' );
+function gvhg_active_notice() { ?>
+    <div class="notice notice-warning" >
+        <p><?php _e( 'Genesis Visual Hook Guide is currently active. If this is a production site, remember to deactivate after use.', 'genesis-visual-hook-guide' ); ?></p>
+    </div>
+<?php }
+
 add_action( 'admin_bar_menu', 'gvhg_admin_bar_links', 100 );
 function gvhg_admin_bar_links() {
 global $wp_admin_bar;
@@ -131,7 +138,6 @@ function gvhg_genesis_action_hook () {
 
 	if ( ! isset( $wp_actions[ $current_action ] ) ) {
 		// This action is not an action (it is probably a filter).
-		//var_dump($current_action);
 		return;
 	}
 
