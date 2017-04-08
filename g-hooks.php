@@ -13,17 +13,17 @@ License: GPLv2
 register_activation_hook(__FILE__, 'gvhg_activation_check');
 function gvhg_activation_check() {
 
-	    $theme_info = wp_get_theme();
+		$theme_info = wp_get_theme();
 
 		$genesis_flavors = array(
 			'genesis',
 			'genesis-trunk',
 		);
 
-        if ( ! in_array( $theme_info->Template, $genesis_flavors ) ) {
-            deactivate_plugins( plugin_basename(__FILE__) ); // Deactivate ourself
-	        wp_die('Sorry, you can\'t activate unless you have installed <a href="http://www.studiopress.com/themes/genesis">Genesis</a>');
-        }
+		if ( ! in_array( $theme_info->Template, $genesis_flavors ) ) {
+			deactivate_plugins( plugin_basename(__FILE__) ); // Deactivate ourself
+			wp_die('Sorry, you can\'t activate unless you have installed <a href="http://www.studiopress.com/themes/genesis">Genesis</a>');
+		}
 }
 
 add_action( 'admin_bar_menu', 'gvhg_admin_bar_links', 100 );
@@ -45,8 +45,8 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_action',
 			'parent'   => 'ghooks',
-			'title'    => __( 'Action Hooks', 'gvisualhookguide' ),
-			'href'     => add_query_arg( 'g_hooks', 'show' ),
+			'title'	   => __( 'Action Hooks', 'gvisualhookguide' ),
+			'href'	   => add_query_arg( 'g_hooks', 'show' ),
 			'position' => 10,
 		)
 	);
@@ -54,8 +54,8 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_filter',
 			'parent'   => 'ghooks',
-			'title'    => __( 'Filter Hooks', 'gvisualhookguide' ),
-			'href'     => add_query_arg( 'g_filters', 'show' ),
+			'title'	   => __( 'Filter Hooks', 'gvisualhookguide' ),
+			'href'	   => add_query_arg( 'g_filters', 'show' ),
 			'position' => 10,
 		)
 	);
@@ -63,8 +63,8 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_markup',
 			'parent'   => 'ghooks',
-			'title'    => __( 'Markup', 'gvisualhookguide' ),
-			'href'     => add_query_arg( 'g_markup', 'show' ),
+			'title'	   => __( 'Markup', 'gvisualhookguide' ),
+			'href'	   => add_query_arg( 'g_markup', 'show' ),
 			'position' => 10,
 		)
 	);
@@ -72,8 +72,8 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_clear',
 			'parent'   => 'ghooks',
-			'title'    => __( 'Clear', 'gvisualhookguide' ),
-			'href'     => remove_query_arg(
+			'title'	   => __( 'Clear', 'gvisualhookguide' ),
+			'href'	   => remove_query_arg(
 				array(
 					'g_hooks',
 					'g_filters',
@@ -92,13 +92,13 @@ function gvhg_hooks_stylesheet() {
 	 $gvhg_plugin_url = plugins_url() . '/genesis-visual-hook-guide/';
 
 	 if ( 'show' == isset( $_GET['g_hooks'] ) )
-	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
 
 	 if ( 'show' == isset( $_GET['g_filters'] ) )
-	 	wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
 
-     if ( 'show' == isset( $_GET['g_markup'] ) )
-     	wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . 'markup.css' );
+	 if ( 'show' == isset( $_GET['g_markup'] ) )
+		wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . 'markup.css' );
 
 }
 
@@ -130,6 +130,7 @@ function gvhg_genesis_action_hook () {
 
 	if ( ! isset( $wp_actions[ $current_action ] ) ) {
 		// This action is not an action (it is probably a filter).
+		//var_dump($current_action);
 		return;
 	}
 
@@ -138,11 +139,11 @@ function gvhg_genesis_action_hook () {
 }
 
 function gvhg_hook_name( $function, $element = null, $description = null ) {
-    $function_name = str_replace( 'gvhg', 'genesis', $function );
-    if ( $element ) {
-        return '<' . $element . ' class="gvhg-filter-cue" data-gvhg-filter-cue="' . $function_name . '" title="' . $description . '">' . $function_name . '</' . $element . '>';
-    }
-    return $function;
+	$function_name = str_replace( 'gvhg', 'genesis', $function );
+	if ( $element ) {
+		return '<' . $element . ' class="gvhg-filter-cue" data-gvhg-filter-cue="' . $function_name . '" title="' . $description . '">' . $function_name . '</' . $element . '>';
+	}
+	return $function;
 }
 
 add_action( 'wp', 'gvhg_filter_logic' );
@@ -200,64 +201,64 @@ function gvhg_ping_author_says_text() {
 }
 
 function gvhg_footer_backtotop_text() {
-    return gvhg_hook_name( __FUNCTION__, 'div' );
+	return gvhg_hook_name( __FUNCTION__, 'div' );
 }
 
 function gvhg_footer_creds_text() {
-    return gvhg_hook_name( __FUNCTION__, 'div' );
+	return gvhg_hook_name( __FUNCTION__, 'div' );
 }
 
 function gvhg_footer_output($output, $backtotop_text, $creds) {
-    return gvhg_hook_name( __FUNCTION__, 'div' ) . $backtotop_text . $creds;
+	return gvhg_hook_name( __FUNCTION__, 'div' ) . $backtotop_text . $creds;
 }
 
 function gvhg_breadcrumb_args($args) {
 	$args['prefix'] = '<div class="breadcrumb"><span class="filter">genesis_breadcrumb_args</span> ';
-    $args['suffix'] = '</div>';
+	$args['suffix'] = '</div>';
 	$args['home'] = __('<span class="filter">[\'home\']</span>', 'genesis');
-    $args['sep'] = '<span class="filter">[\'sep\']</span>';
-    $args['labels']['prefix'] = __('<span class="filter">[\'labels\'][\'prefix\']</span> ', 'genesis');
+	$args['sep'] = '<span class="filter">[\'sep\']</span>';
+	$args['labels']['prefix'] = __('<span class="filter">[\'labels\'][\'prefix\']</span> ', 'genesis');
 	return $args;
 }
 
 function gvhg_title_pings() {
-    echo gvhg_hook_name( __FUNCTION__, 'h3' );
+	echo gvhg_hook_name( __FUNCTION__, 'h3' );
 }
 
 function gvhg_no_pings_text() {
-    echo gvhg_hook_name( __FUNCTION__, 'p' );
+	echo gvhg_hook_name( __FUNCTION__, 'p' );
 }
 
 function gvhg_title_comments() {
-    echo gvhg_hook_name( __FUNCTION__, 'h3' );
+	echo gvhg_hook_name( __FUNCTION__, 'h3' );
 }
 
 function gvhg_comments_closed_text() {
-    echo gvhg_hook_name( __FUNCTION__, 'p' );
+	echo gvhg_hook_name( __FUNCTION__, 'p' );
 }
 
 function gvhg_no_comments_text() {
-    echo gvhg_hook_name( __FUNCTION__, 'p' );
+	echo gvhg_hook_name( __FUNCTION__, 'p' );
 }
 
 function gvhg_comment_form_args($args) {
-    $args['title_reply'] = '<span class="filter">genesis_comment_form_args [\'title_reply\']</span>';
-    $args['comment_notes_before'] = '<span class="filter">genesis_comment_form_args [\'comment_notes_before\']</span>';
-    $args['comment_notes_after'] = '<span class="filter">genesis_comment_form_args [\'comment_notes_after\']</span>';
+	$args['title_reply'] = '<span class="filter">genesis_comment_form_args [\'title_reply\']</span>';
+	$args['comment_notes_before'] = '<span class="filter">genesis_comment_form_args [\'comment_notes_before\']</span>';
+	$args['comment_notes_after'] = '<span class="filter">genesis_comment_form_args [\'comment_notes_after\']</span>';
 
-    return $args;
+	return $args;
 }
 
 function gvhg_favicon_url() {
-    return 'genesis_favicon_url';
+	return 'genesis_favicon_url';
 }
 
 function gvhg_post_info() {
-    return gvhg_hook_name( __FUNCTION__, 'span' );
+	return gvhg_hook_name( __FUNCTION__, 'span' );
 }
 
 function gvhg_post_meta() {
-    return gvhg_hook_name( __FUNCTION__, 'span' );
+	return gvhg_hook_name( __FUNCTION__, 'span' );
 }
 
 function gvhg_post_title_text() {
