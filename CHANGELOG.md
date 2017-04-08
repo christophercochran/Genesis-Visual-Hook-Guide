@@ -1,9 +1,6 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
-
 ## [Unreleased]
 ### Added 
 - CHANGELOG.md
@@ -19,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Fixed: The textual value echod from gvhg_ping_author_says_text function was incorrect.
 - Updated: Simplified filter hook callbacks. (Props garyj)
 
-## [0.9.0] - 2013-5-16
+## 0.9.0 - 2013-5-16
 - Added: New Hooks from Genesis 2.0 (HTML5):
 			genesis_before_entry,
 			genesis_entry_header,
@@ -67,6 +64,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## 0.5b
 - Initial Beta Release
 
-[Unreleased]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/1.0.0-dev...HEAD
-[0.9.5]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.5...1.0.0-dev
-[0.9.0]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.0...1.0.0-dev
+[Unreleased]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.5...1.0.0-dev
+[0.9.5]: https://github.com/christophercochran/Genesis-Visual-Hook-Guide/compare/0.9.0...0.9.5
