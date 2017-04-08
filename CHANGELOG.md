@@ -3,12 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 ### Added 
-- CHANGELOG.md
-- README.md
+- No added features yet
 
 ### Changed
-- Removed change log from readme.txt
-
+- No other changes yet
 
 ## [0.9.5] - 2014-12-31
 - Added: Clear menu item to disable all active displayed views. (Props salcode)
