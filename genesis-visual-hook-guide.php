@@ -181,7 +181,7 @@ function gvhg_filter_logic() {
 		add_filter( 'genesis_search_button_text', 'gvhg_search_button_text');
 		add_filter( 'genesis_nav_home_text', 'gvhg_nav_home_text');
 		add_filter( 'genesis_favicon_url', 'gvhg_favicon_url');
-		add_filter( 'genesis_footer_credits', 'gvhg_footer_creds_text');
+		add_filter( 'genesis_footer_creds_text', 'gvhg_footer_creds_text');
 
 	}
 
