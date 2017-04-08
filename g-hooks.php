@@ -133,14 +133,14 @@ function gvhg_genesis_action_hook () {
 		return;
 	}
 
-	echo '<div class="genesis_hook">' . $current_action . '</div>';
+	echo '<div class="gvhg-hook-cue" data-gvhg-hook-cue="' . $current_action . '">' . $current_action . '</div>';
 
 }
 
 function gvhg_hook_name( $function, $element = null, $description = null ) {
     $function_name = str_replace( 'gvhg', 'genesis', $function );
     if ( $element ) {
-        return '<' . $element . ' class="filter" title="' . $description . '">' . $function_name . '</' . $element . '>';
+        return '<' . $element . ' class="gvhg-filter-cue" data-gvhg-filter-cue="' . $function_name . '" title="' . $description . '">' . $function_name . '</' . $element . '>';
     }
     return $function;
 }
