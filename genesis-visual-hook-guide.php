@@ -47,7 +47,7 @@ global $wp_admin_bar;
 			'id'	   => 'gvhg_hooks_action',
 			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Action Hooks', 'genesis-visual-hook-guide' ),
-			'href'	   => add_query_arg( 'gvhg_hooks', 'show' ),
+			'href'	   => esc_url( add_query_arg( 'gvhg_hooks', 'show' ) ),
 			'position' => 10,
 		)
 	);
@@ -56,7 +56,7 @@ global $wp_admin_bar;
 			'id'	   => 'gvhg_hooks_filter',
 			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Filter Hooks', 'genesis-visual-hook-guide' ),
-			'href'	   => add_query_arg( 'gvhg_filters', 'show' ),
+			'href'	   => esc_url( add_query_arg( 'gvhg_filters', 'show' ) ),
 			'position' => 10,
 		)
 	);
@@ -65,7 +65,7 @@ global $wp_admin_bar;
 			'id'	   => 'gvhg_hooks_markup',
 			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Markup', 'genesis-visual-hook-guide' ),
-			'href'	   => add_query_arg( 'gvhg_markup', 'show' ),
+			'href'	   => esc_url( add_query_arg( 'gvhg_markup', 'show' ) ),
 			'position' => 10,
 		)
 	);
@@ -74,13 +74,13 @@ global $wp_admin_bar;
 			'id'	   => 'gvhg_hooks_clear',
 			'parent'   => 'gvhg_hooks',
 			'title'	   => __( 'Clear', 'genesis-visual-hook-guide' ),
-			'href'	   => remove_query_arg(
+			'href'	   => esc_url( remove_query_arg(
 				array(
 					'gvhg_hooks',
 					'gvhg_filters',
 					'gvhg_markup',
 				)
-			),
+			) ),
 			'position' => 10,
 		)
 	);
