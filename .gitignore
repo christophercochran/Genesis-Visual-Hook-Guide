@@ -1,0 +1,18 @@
+# Mac OS X
+.DS_Store
+
+# PHPStorm
+.idea
+
+# PHPunit config
+phpunit.xml
+
+# NPM
+.sass-cache
+bower_components
+node_modules
+logs
+*.log
+
+# General
+NOTES.md
