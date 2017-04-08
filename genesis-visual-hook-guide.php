@@ -92,14 +92,14 @@ function gvhg_hooks_stylesheet() {
 
 	 $gvhg_plugin_url = plugins_url() . '/genesis-visual-hook-guide/';
 
-	 if ( 'show' == isset( $_GET['g_hooks'] ) )
-		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+	 if ( 'show' == isset( $_GET['gvhg_hooks'] ) )
+		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . '/css/styles.css' );
 
-	 if ( 'show' == isset( $_GET['g_filters'] ) )
-		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . 'styles.css' );
+	 if ( 'show' == isset( $_GET['gvhg_filters'] ) )
+		wp_enqueue_style( 'gvhg_styles', $gvhg_plugin_url . '/css/styles.css' );
 
-	 if ( 'show' == isset( $_GET['g_markup'] ) )
-		wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . 'markup.css' );
+	 if ( 'show' == isset( $_GET['gvhg_markup'] ) )
+		wp_enqueue_style( 'gvhg_markup_styles', $gvhg_plugin_url . '/css/markup.css' );
 
 }
 
@@ -118,7 +118,7 @@ function gvhg_genesis_hooker() {
 function gvhg_genesis_action_hook () {
 	global $wp_actions;
 
-	if ( 'show' != isset( $_GET['g_hooks'] ) ) {
+	if ( 'show' != isset( $_GET['gvhg_hooks'] ) ) {
 		return;
 	}
 
