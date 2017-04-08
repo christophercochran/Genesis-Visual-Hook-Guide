@@ -1,5 +1,5 @@
 # Genesis Visual Hook Guide
-[Find that hook you need!](assets/banner-772x250.png)
+![Find that hook you need!](assets/banner-772x250.png)
 
 Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.
 
