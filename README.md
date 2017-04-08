@@ -1,4 +1,5 @@
 # Genesis Visual Hook Guide
+(assets/banner-772x250.png)
 
 Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.
 
@@ -11,6 +12,17 @@ Once installed this plugin adds a drop down menu to the admin bar to select betw
 Great companion to [Genesis Simple Hooks](https://wordpress.org/plugins/genesis-simple-hooks/).
 
 **Genesis Theme Framework required.**
+
+
+## Screenshots
+
+![Plugin in action on the default Sample Child Theme.](assets/screenshot-1.png)  
+_Screenshot 1: Markup using Custom Menu widget. Note the `aside`, `section` and `div` parents to `nav`._
+
+---
+
+![Hooks in Document Head.](assets/screenshot-2.png)  
+_Screenshot 2: Markup using this plugin. `nav` is a sibling element to the title area `div`._
 
 ## Installation
 
