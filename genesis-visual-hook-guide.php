@@ -152,8 +152,8 @@ function gvhg_filter_logic() {
 
 	if ( 'show' == isset( $_GET['gvhg_filters'] ) ) {
 
-		add_filter( 'genesis_seo_title', 'gvhg_genesis_seo_title', 10, 3 );
-		add_filter( 'genesis_seo_description', 'gvhg_genesis_seo_description', 10, 3 );
+		add_filter( 'genesis_seo_title', 'gvhg_seo_title', 10, 3 );
+		add_filter( 'genesis_seo_description', 'gvhg_seo_description', 10, 3 );
 		add_filter( 'genesis_title_comments', 'gvhg_title_comments');
 		add_filter( 'genesis_comment_form_args', 'gvhg_comment_form_args');
 		add_filter( 'genesis_comments_closed_text', 'gvhg_comments_closed_text');
@@ -181,11 +181,11 @@ function gvhg_filter_logic() {
 
 }
 
-function gvhg_genesis_seo_title( $title, $inside, $wrap ) {
+function gvhg_seo_title( $title, $inside, $wrap ) {
 	return sprintf('<%s id="title">' . gvhg_hook_name( __FUNCTION__, 'span', 'Applied to the output of the genesis_seo_site_title function which depending on the SEO option set by the user will either wrap the title in <h1> or <p> tags. Default value: $title, $inside, $wrap' ) . '</%s>', $wrap, $wrap);
 }
 
-function gvhg_genesis_seo_description( $description, $inside, $wrap ) {
+function gvhg_seo_description( $description, $inside, $wrap ) {
 	return sprintf('<%s id="title">' . gvhg_hook_name( __FUNCTION__, 'span', 'Applied to the output of the genesis_seo_site_description function which depending on the SEO option set by the user will either wrap the description in <h1> or <p> tags. Default value: $description, $inside, $wrap' ) . '</%s>', $wrap, $wrap);
 }
 
