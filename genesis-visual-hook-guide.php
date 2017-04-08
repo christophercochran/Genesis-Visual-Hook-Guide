@@ -23,7 +23,7 @@ function gvhg_activation_check() {
 
 		if ( ! in_array( $theme_info->Template, $genesis_flavors ) ) {
 			deactivate_plugins( plugin_basename(__FILE__) ); // Deactivate ourself
-			wp_die('Sorry, you can\'t activate unless you have installed <a href="http://www.studiopress.com/themes/genesis">Genesis</a>');
+			wp_die('Sorry, you can\'t activate unless you have installed <a href="https://my.studiopress.com/themes/genesis/">Genesis</a>');
 		}
 }
 
