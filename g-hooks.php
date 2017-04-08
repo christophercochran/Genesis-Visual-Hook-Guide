@@ -6,6 +6,7 @@ Description: Find Genesis hooks (action and filter hooks) quick and easily by se
 Version: 0.9.5
 Author: Christopher Cochran
 Author URI: http://christophercochran.me
+Text Domain: genesis-visual-hook-guide
 License: GPLv2
 */
 
@@ -36,7 +37,7 @@ global $wp_admin_bar;
 	$wp_admin_bar->add_menu(
 		array(
 			'id' => 'ghooks',
-			'title' => __( 'G Hook Guide', 'gvisualhookguide' ),
+			'title' => __( 'Genesis Hook Guide', 'genesis-visual-hook-guide' ),
 			'href' => '',
 			'position' => 0,
 		)
@@ -45,7 +46,7 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_action',
 			'parent'   => 'ghooks',
-			'title'	   => __( 'Action Hooks', 'gvisualhookguide' ),
+			'title'	   => __( 'Action Hooks', 'genesis-visual-hook-guide' ),
 			'href'	   => add_query_arg( 'g_hooks', 'show' ),
 			'position' => 10,
 		)
@@ -54,7 +55,7 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_filter',
 			'parent'   => 'ghooks',
-			'title'	   => __( 'Filter Hooks', 'gvisualhookguide' ),
+			'title'	   => __( 'Filter Hooks', 'genesis-visual-hook-guide' ),
 			'href'	   => add_query_arg( 'g_filters', 'show' ),
 			'position' => 10,
 		)
@@ -63,7 +64,7 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_markup',
 			'parent'   => 'ghooks',
-			'title'	   => __( 'Markup', 'gvisualhookguide' ),
+			'title'	   => __( 'Markup', 'genesis-visual-hook-guide' ),
 			'href'	   => add_query_arg( 'g_markup', 'show' ),
 			'position' => 10,
 		)
@@ -72,7 +73,7 @@ global $wp_admin_bar;
 		array(
 			'id'	   => 'ghooks_clear',
 			'parent'   => 'ghooks',
-			'title'	   => __( 'Clear', 'gvisualhookguide' ),
+			'title'	   => __( 'Clear', 'genesis-visual-hook-guide' ),
 			'href'	   => remove_query_arg(
 				array(
 					'g_hooks',
