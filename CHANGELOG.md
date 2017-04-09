@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 - Automating the locating of hooks (props salcode)
 
 ### Changed
-- Main file name updated from `g-hooks.php` to `genesis-visual-hook-guide` to match plugin slug. Due to this, plugin will need to be reactivated after updating.
+- Main file name updated from `g-hooks.php` to `genesis-visual-hook-guide.php` to match plugin slug. Due to this, plugin will need to be reactivated after updating.
 - Query strings to display hooks, filters, and markup are now gvhg_hooks, gvhg_filters and gvhg_markup.
 - Escapes output of add_query_arg
 - Filter hooks genesis_seo_title and genesis_seo_description names were displayed wrong.
