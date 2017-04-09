@@ -1,0 +1,22 @@
+{
+	"name": "christophercochran/Genesis-Visual-Hook-Guide",
+	"description": "Find Genesis hooks (action and filter hooks) quick and easily by seeing their actual locations inside your theme.",
+	"keywords": ["genesis", "hooks", "filters"],
+	"type": "wordpress-plugin",
+	"homepage": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide",
+	"license": "GPLv2",
+	"authors": [
+	{
+		"name": "Christopher Cochran",
+		"homepage": "http://christophercochran.me",
+		"role": "Developer"
+	}
+	],
+	"support": {
+	"issues": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide/issues",
+	"source": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide"
+	},
+	"require": {
+	"composer/installers": "~1.0"
+	}
+}
