@@ -6,17 +6,17 @@
 	"homepage": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide",
 	"license": "GPLv2",
 	"authors": [
-	{
-		"name": "Christopher Cochran",
-		"homepage": "http://christophercochran.me",
-		"role": "Developer"
-	}
+		{
+			"name": "Christopher Cochran",
+			"homepage": "http://christophercochran.me",
+			"role": "Developer"
+		}
 	],
 	"support": {
-	"issues": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide/issues",
-	"source": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide"
+		"issues": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide/issues",
+		"source": "https://github.com/christophercochran/Genesis-Visual-Hook-Guide"
 	},
 	"require": {
-	"composer/installers": "~1.0"
+		"composer/installers": "~1.0"
 	}
 }
